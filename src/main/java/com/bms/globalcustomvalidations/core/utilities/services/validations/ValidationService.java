@@ -19,32 +19,27 @@ public class ValidationService {
     }
 
     public void greaterThan(int value, int min, String message) {
-        if (value > min)
+        if (value < min)
             throw new ValidationException(message);
     }
 
     public void lessThan(int value, int max, String message) {
-        if (value < max)
+        if (value > max)
             throw new ValidationException(message);
     }
 
     public void greaterThanOrEqual(int value, int min, String message) {
-        if (value >= min)
+        if (value <= min)
             throw new ValidationException(message);
     }
 
     public void lessThanOrEqual(int value, int max, String message) {
-        if (value <= max)
+        if (value >= max)
             throw new ValidationException(message);
     }
 
     public void email(String email, String regex, String message) {
         if (!email.matches(regex))
-            throw new ValidationException(message);
-    }
-
-    public void password(String password, String regex, String message) {
-        if (!password.matches(passwordRegex))
             throw new ValidationException(message);
     }
 }
